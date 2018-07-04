@@ -5,5 +5,10 @@
 - service ssh restart
 
 2. Run SSH docker
-- docker build -t honeySSH .
-- docker run -d -p 22:22 honeySSH
+- docker build -t honeySSHimg .
+- docker run -d -p 22:22 --name honeySSH honeySSHimg
+
+3. test
+	echo 'lkjhgfedrqw' | ssh root@localhost
+
+	^_-
