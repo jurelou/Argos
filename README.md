@@ -34,7 +34,7 @@ Logging:
 Reporting:
 - [ ] Web interface (kibana)
 - [ ] automaticaly map IP addresses
-- [ ] elasticsearch for data analytics
+- [ ] elasticsearch for data indexing
 
 Apps:
 - [ ] ssh with scp feature
