@@ -47,7 +47,7 @@ Apps:
 - [ ] FTP
 
 Core:
-- [ ] supervird for multiple services
+- [ ] supervisord for multiple services
 - [ ] Dynamically spawn containers for each connections
 - [ ] enable two factor authentication (ssh + google authenticator)
 - [ ] container isolation
