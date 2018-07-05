@@ -2,7 +2,7 @@
 
 1. Change ssh port on host
 
-`vim /etc/ssh/sshd_config`
+`sed -i 's/^#?Port .*/Port 2222/' /etc/ssh/sshd_config`
 
 `service ssh restart`
 
