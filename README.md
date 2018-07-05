@@ -21,8 +21,14 @@ Logging:
 -	database for uploaded shelcodes, malwares (sqlite)
 -	message queue // logrotates (rabbitMQ, redis ..)
 
+Reporting:
+-	Web interface (kibana)
+-	automaticaly map IP addresses
+-	elasticsearch for analytics
+
 Apps:
 -	open SNMP
 -	databases with weak passwords (sql, mongoDB, ...)
 -	vulnerable web applications
+-	port 502 for easy DOS
 	
