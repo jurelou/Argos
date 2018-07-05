@@ -23,14 +23,14 @@
 TODO:
 
 Logging:
-- [ ] forward container-local syslog messages to log server
-- [ ] pipe STDOUT/STDERR to journal
+
+- [ ] forward container syslog messages to log server
+- [ ] log shell commands
 - [ ] Deploy logstash on log server for logs aggregation
-- [ ] log docker diffs for compromised machines
+- [ ] log docker diffs for compromised machines ( and hosts?)
 - [ ] secure connexion between loghost & log server (tls)
 - [ ] database for uploaded shellcodes, malwares (sqlite)
 - [ ] message queue // logrotates (rabbitMQ, redis ..)
-- [ ] log host machine for self-compromised machine
 
 Reporting:
 - [ ] Web interface (kibana)
@@ -49,6 +49,6 @@ Apps:
 Core:
 - [ ] supervisord for multiple services
 - [ ] Dynamically spawn containers for each connections
-- [ ] enable two factor authentication (ssh + google authenticator)
+- [ ] rsyslog secure connection
 - [ ] container isolation
 - [ ] rate limit
