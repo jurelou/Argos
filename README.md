@@ -49,6 +49,6 @@ Apps:
 Core:
 - [ ] supervisord for multiple services
 - [ ] Dynamically spawn containers for each connections
-- [ ] rsyslog secure connection
+- [ ] rsyslog secure connection  with machine-certificates
 - [ ] container isolation
 - [ ] rate limit
