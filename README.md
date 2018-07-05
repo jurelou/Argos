@@ -27,8 +27,9 @@ Reporting:
 -	elasticsearch for analytics
 
 Apps:
+-	ssh with scp feature
 -	open SNMP
 -	databases with weak passwords (sql, mongoDB, ...)
 -	vulnerable web applications
 -	port 502 for easy DOS
-	
+-	FTP
