@@ -33,3 +33,8 @@ Apps:
 -	vulnerable web applications
 -	port 502 for easy DOS
 -	FTP
+
+Security:
+-	enable two factor authentication (ssh + google authenticator)
+-	container isolation
+-	rate limit
