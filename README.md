@@ -33,7 +33,8 @@ Logging:
 
 Reporting:
 - [ ] Web interface (kibana)
-- [ ] automaticaly map IP addresses
+- [ ] automaticaly map IP addresses to region
+- [ ] Attackers machine's signature
 - [ ] elasticsearch for data indexing
 
 Apps:
