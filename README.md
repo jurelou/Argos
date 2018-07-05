@@ -18,13 +18,13 @@ TODO:
 
 Logging:
 -	secure connexion between loghost & log server (tls)
--	database for uploaded shelcodes, malwares (sqlite)
+-	database for uploaded shellcodes, malwares (sqlite)
 -	message queue // logrotates (rabbitMQ, redis ..)
 
 Reporting:
 -	Web interface (kibana)
 -	automaticaly map IP addresses
--	elasticsearch for analytics
+-	elasticsearch for data analytics
 
 Apps:
 -	ssh with scp feature
