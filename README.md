@@ -46,6 +46,7 @@ Apps:
 - [ ] FTP
 
 Security:
+- [ ] Dynamically spawn environments for each connections
 - [ ] enable two factor authentication (ssh + google authenticator)
 - [ ] container isolation
 - [ ] rate limit
