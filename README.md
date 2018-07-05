@@ -17,6 +17,9 @@
 TODO:
 
 Logging:
+- [ ] forward container-local syslog messages to host syslog
+- [ ] forward host syslogs to log server
+- [ ] Deploy logstash on log server for logs aggregation
 - [ ] secure connexion between loghost & log server (tls)
 - [ ] database for uploaded shellcodes, malwares (sqlite)
 - [ ] message queue // logrotates (rabbitMQ, redis ..)
