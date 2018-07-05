@@ -24,6 +24,7 @@ TODO:
 
 Logging:
 - [ ] forward container-local syslog messages to log server
+- [ ] pipe STDIN/STDOUT to journal
 - [ ] Deploy logstash on log server for logs aggregation
 - [ ] log docker diffs for compromised machines
 - [ ] secure connexion between loghost & log server (tls)
