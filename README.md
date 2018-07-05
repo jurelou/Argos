@@ -22,19 +22,19 @@ Logging:
 - [ ] message queue // logrotates (rabbitMQ, redis ..)
 
 Reporting:
--	Web interface (kibana)
--	automaticaly map IP addresses
--	elasticsearch for data analytics
+- [ ] Web interface (kibana)
+- [ ] automaticaly map IP addresses
+- [ ] elasticsearch for data analytics
 
 Apps:
--	ssh with scp feature
--	open SNMP
--	databases with weak passwords (sql, mongoDB, ...)
--	vulnerable web applications
--	port 502 for easy DOS
--	FTP
+- [ ] ssh with scp feature
+- [ ] open SNMP
+- [ ] databases with weak passwords (sql, mongoDB, ...)
+- [ ] vulnerable web applications
+- [ ] port 502 for easy DOS
+- [ ] FTP
 
 Security:
--	enable two factor authentication (ssh + google authenticator)
--	container isolation
--	rate limit
+- [ ] enable two factor authentication (ssh + google authenticator)
+- [ ] container isolation
+- [ ] rate limit
