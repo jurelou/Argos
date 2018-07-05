@@ -46,7 +46,8 @@ Apps:
 - [ ] port 502 for easy DOS
 - [ ] FTP
 
-Security:
+Core:
+- [ ] supervird for multiple services
 - [ ] Dynamically spawn containers for each connections
 - [ ] enable two factor authentication (ssh + google authenticator)
 - [ ] container isolation
