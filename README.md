@@ -17,9 +17,9 @@
 TODO:
 
 Logging:
--	secure connexion between loghost & log server (tls)
--	database for uploaded shellcodes, malwares (sqlite)
--	message queue // logrotates (rabbitMQ, redis ..)
+- [ ] secure connexion between loghost & log server (tls)
+- [ ] database for uploaded shellcodes, malwares (sqlite)
+- [ ] message queue // logrotates (rabbitMQ, redis ..)
 
 Reporting:
 -	Web interface (kibana)
