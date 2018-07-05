@@ -17,12 +17,13 @@
 TODO:
 
 Logging:
-- [ ] forward container-local syslog messages to host syslog
-- [ ] forward host syslogs to log server
+- [ ] forward container-local syslog messages to log server
 - [ ] Deploy logstash on log server for logs aggregation
+- [ ] log docker diffs for compromised machines
 - [ ] secure connexion between loghost & log server (tls)
 - [ ] database for uploaded shellcodes, malwares (sqlite)
 - [ ] message queue // logrotates (rabbitMQ, redis ..)
+- [ ] log host machine for self-compromised machine
 
 Reporting:
 - [ ] Web interface (kibana)
