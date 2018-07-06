@@ -40,6 +40,7 @@ Reporting:
 
 Apps:
 - [ ] ssh with scp feature
+- [ ] MDNS, DropBox, lansync ?
 - [ ] open SNMP
 - [ ] databases with weak passwords (sql, mongoDB, ...)
 - [ ] vulnerable web applications
