@@ -25,10 +25,10 @@ TODO:
 Logging:
 
 - [ ] forward container syslog messages to log server
-- [ ] log shell commands
+- [ ] kernel module keylogger
+- [ ] hook syscalls
 - [ ] Deploy logstash on log server for logs aggregation
 - [ ] log docker diffs for compromised machines ( and hosts?)
-- [ ] secure connexion between loghost & log server (tls)
 - [ ] database for uploaded shellcodes, malwares (sqlite)
 - [ ] message queue // logrotates (rabbitMQ, redis ..)
 
