@@ -1,6 +1,6 @@
 input {
   udp {
-    host => "logstash_private_ip"
+    host => "127.0.0.1"
     port => 10514
     codec => "json"
     type => "rsyslog"
@@ -18,7 +18,7 @@ filter { }
 output {
   if [type] == "rsyslog" {
     elasticsearch {
-      hosts => [ "elasticsearch_private_ip:9200" ]
+      hosts => [ "127.0.0.1:9200" ]
     }
   }
 }
