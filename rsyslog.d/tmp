@@ -1,3 +1,24 @@
-wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add - && \
-echo "deb http://packages.elastic.co/logstash/2.3/debian stable main" | sudo tee -a /etc/apt/sources.list && \
-apt-get update && apt-get install logstash
+input {
+  udp {
+    host => "logstash_private_ip"
+    port => 10514
+    codec => "json"
+    type => "rsyslog"
+  }
+}
+
+# This is an empty filter block.  You can later add other filters here to further process
+# your log lines
+
+filter { }
+
+# This output block will send all events of type "rsyslog" to Elasticsearch at the configured
+# host and port into daily indices of the pattern, "rsyslog-YYYY.MM.DD"
+
+output {
+  if [type] == "rsyslog" {
+    elasticsearch {
+      hosts => [ "elasticsearch_private_ip:9200" ]
+    }
+  }
+}
