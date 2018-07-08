@@ -4,7 +4,7 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
-    - /var/log/pot/*
+    - /var/log/beat/*
     - /var/log/auth.log
 
 #============================= Filebeat modules ===============================
