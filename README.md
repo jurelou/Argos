@@ -10,7 +10,7 @@ Deployment:
 
 Logging:
 
-- [ ] forward container syslog messages to log server
+- [x] forward container syslog messages to log server
 - [ ] kernel module keylogger
 - [ ] hook syscalls
 - [ ] Deploy logstash on log server for logs aggregation
@@ -19,13 +19,14 @@ Logging:
 - [ ] message queue // logrotates (rabbitMQ, redis ..)
 
 Reporting:
-- [ ] Web interface (kibana)
+- [x] Web interface (kibana)
 - [ ] automaticaly map IP addresses to region
 - [ ] Attackers machine's signature
-- [ ] elasticsearch for data indexing
+- [x] elasticsearch for data indexing
 
 Apps:
-- [ ] ssh with scp feature
+- [x] ssh server
+- [ ] scp, sftp,   
 - [ ] MDNS, DropBox, lansync ?
 - [ ] open SNMP
 - [ ] databases with weak passwords (sql, mongoDB, ...)
