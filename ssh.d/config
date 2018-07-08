@@ -1,5 +1,0 @@
-Host docker
-	Hostname localhost
-	Port 2222
-	User docker
-	IdentityFile ~/.ssh/docker_id_rsa

@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-REMOTE_HOST=${1:-loghost.example.com}
-
-sed -i "s/LOGHOST/$REMOTE_HOST/" /etc/rsyslog.d/remote.conf
-/usr/sbin/rsyslogd
