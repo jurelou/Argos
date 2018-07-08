@@ -13,8 +13,8 @@ Logging:
 - [x] forward container syslog messages to log server
 - [ ] kernel module keylogger
 - [ ] hook syscalls
-- [ ] Deploy logstash on log server for logs aggregation
-- [ ] log docker diffs for compromised machines ( and hosts?)
+- [x] Deploy logstash on log server for logs aggregation
+- [x] log docker diffs for compromised machines ( and hosts?)
 - [ ] database for uploaded shellcodes, malwares (sqlite)
 - [ ] message queue // logrotates (rabbitMQ, redis ..)
 
