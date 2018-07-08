@@ -13,7 +13,7 @@ import logging
 import paramiko
 from paramiko.py3compat import b, u
 
-PORT = 22
+PORT = 2242
 LOG_FILE = '/var/ssh.log'
 RETURN_MESSAGE = None
 DENY_ALL = False
