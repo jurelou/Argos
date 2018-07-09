@@ -1,7 +1,7 @@
 # HoneyPy
 ![Alt text](https://static.comicvine.com/uploads/scale_small/11/117763/3094291-mightyherc13807.jpg)
 
-Install new slave:
+Install new poller:
 ```shell
 ssh-copy-id root@XXX -p 22
 ssh -p 22 'root@XXX'
