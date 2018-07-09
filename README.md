@@ -1,5 +1,5 @@
 # HoneyPy
-![Alt text](https://static.comicvine.com/uploads/scale_small/11/117763/3094291-mightyherc13807.jpg "Argos")
+![Alt text](https://static.comicvine.com/uploads/scale_small/11/117763/3094291-mightyherc13807.jpg)
 	
 TODO:
 
