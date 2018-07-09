@@ -3,8 +3,8 @@
 
 Install new slave:
 ```shell
-ssh-copy-id root@XXX -p XXX
-ssh -p 'XXX' 'root@XXX'
+ssh-copy-id root@XXX -p 22
+ssh -p 22 'root@XXX'
 apt-get install python-simplejson
 exit
 ansible -m ping all
