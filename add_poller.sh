@@ -7,5 +7,4 @@ then
 fi
 ssh-copy-id root@$1 -p 22
 ssh -p 22 root@$1 "apt-get install python-simplejson"
-echo "$2 ansible_host=$1 ansible_user=root >> /opt/hosts"
-cd /opt/HoneyPy/config && ansible -m ping slaves
+echo "$2 ansible_host=$1 ansible_user=root" >> /opt/hosts
