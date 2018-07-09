@@ -1,5 +1,5 @@
 # HoneyPy
-![Alt text](./argos.jpg?raw=true "Argos")
+![Alt text](./Argos.jpg?raw=true "Argos")
 	
 TODO:
 
