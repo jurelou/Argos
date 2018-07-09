@@ -1,5 +1,5 @@
 ---
--name: "Full install honey moly!!!!!!" 
+- name: "Full install honey moly!!!!!!" 
   hosts: slaves
   remote_user: root
   become: true

@@ -9,5 +9,5 @@
   service: name=filebeat state=restarted
   notify: status-filebeat
 
--name: "status-filebeat"
+- name: "status-filebeat"
   service: name=filebeat state=started enabled=yes
