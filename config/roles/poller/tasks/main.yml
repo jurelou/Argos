@@ -5,7 +5,7 @@
   - vim
   
 - name: "copying files"
-  copy: src=../../../filebeat/filebeat.yml owner=louis group=louis mode=0644
+  copy: src=../../../filebeat/filebeat.yml dest=/opt/filebeat.yml owner=root group=root mode=0644
   
 - name: "change ssh port"
   shell: sed -i 's/^Port .*/Port 2242/' /etc/ssh/sshd_config
