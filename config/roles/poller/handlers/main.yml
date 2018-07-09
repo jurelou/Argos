@@ -1,2 +1,6 @@
 - name: restart-ssh
   service: name=ssh state=restarted
+  notify: status-ssh
+  
+- name: status-ssh
+  service: name=ssh state=started enabled=yes
