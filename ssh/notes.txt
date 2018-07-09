@@ -1,2 +1,0 @@
-docker built -t honeySSH .
-docker run -d --rm --name toto -p 1111:2242 -v /ok:/var/ honeySSH
