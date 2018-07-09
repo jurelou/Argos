@@ -1,5 +1,5 @@
 # HoneyPy
-^_-
+![Alt text](./argos.jpg?raw=true "Argos")
 	
 TODO:
 
