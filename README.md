@@ -1,9 +1,12 @@
 # HoneyPy
 ![Alt text](https://static.comicvine.com/uploads/scale_small/11/117763/3094291-mightyherc13807.jpg)
 
-ssh-copy-id root@XXXXX -p XXXXXXX
-
-
+Install new slave:
+ssh-copy-id root@XXX -p XXX
+ssh -p 'XXX' 'root@XXX'
+apt-get install python-simplejson
+exit
+ansible -m ping all
 
 TODO:
 
