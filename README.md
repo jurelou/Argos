@@ -5,8 +5,7 @@ TODO:
 
 Deployment:
 
-- [ ] use ansible
-- [ ] update slaves config from master (smtp ?)
+- [ ] ansible deployment / patch
 
 Logging:
 
@@ -28,15 +27,15 @@ Apps:
 - [x] ssh server
 - [ ] scp, sftp,   
 - [ ] MDNS, DropBox, lansync ?
-- [ ] open SNMP
+- [ ] SNMP (v1, v2)
 - [ ] databases with weak passwords (sql, mongoDB, ...)
 - [ ] vulnerable web applications
 - [ ] port 502 for easy DOS
-- [ ] FTP
 
 Core:
-- [ ] supervisord for multiple services
+- [ ] supervisord for multiple services inside docker nor docker-compos
 - [ ] Dynamically spawn containers for each connections
 - [ ] rsyslog secure connection  with machine-certificates
 - [ ] container isolation
 - [ ] rate limit
+- [ ] dedicated storage server
