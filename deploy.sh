@@ -3,6 +3,12 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+#create user
+adduser louis
+usermod -aG sudo louis
+cat /dev/zero | ssh-keygen -q -N ""
+
+
 #change ssh port
 sed -i 's/^Port .*/Port 2242/' /etc/ssh/sshd_config
 service ssh restart
@@ -15,6 +21,12 @@ apt-key fingerprint 0EBFCD88
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 apt-get update
 apt-get install docker-ce
+groupadd docker
+usermod -aG docker louis
+
+#####
+# su - louis
+####
 
 #clone git repo
 cd /opt && git clone https://github.com/jurelou/HoneyPy.git
