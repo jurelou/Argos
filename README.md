@@ -3,11 +3,12 @@
 
 Install new poller:
 ```shell
-ssh-copy-id root@XXX -p 22
-ssh -p 22 'root@XXX'
+ssh-copy-id root@IP -p 22
+ssh -p 22 'root@IP'
 apt-get install python-simplejson
 exit
-ansible -m ping all
+echo "server-name ansible_host=IP ansible_user=root >> /opt/hosts
+ansible -m ping slaves
 ```
 TODO:
 
