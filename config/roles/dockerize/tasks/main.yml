@@ -1,0 +1,12 @@
+- name: "Clean all docker images / instances"
+  command: "{{ item }}"
+  with_items:
+    - docker kill $(docker ps -q)
+    - docker rm $(docker ps -a -q)
+    - docker rmi $(docker images -q)
+
+- name: "Launch ssh instance"
+  command: "{{ item }}"
+  with_items:
+    - docker build -t honeysshimg /opt/HoneyPy/handlers/ssh/
+    - docker run -d --rm --name honeySSH -p 22:2242 -v /var/log/beat:/var/ honeysshimg

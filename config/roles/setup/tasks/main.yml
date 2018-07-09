@@ -1,0 +1,56 @@
+- name: "Install dependencies"
+  apt: pkg={{ item }} update_cache=yes
+  with_items:
+  - git
+  - curl
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - software-properties-common
+
+- name: "Copy files"
+  copy: src=/opt/HoneyPy/ dest=/opt/ remote_src=yes directory_mode=yes
+
+- name: "Create user"
+  command: "{{ item }}"
+  with_items:
+    - adduser louis
+    - usermod -aG sudo louis
+    - cat /dev/zero | ssh-keygen -q -N ""
+
+ 
+- name: "Change ssh port"
+  shell: sed -i 's/^Port .*/Port 2242/' /etc/ssh/sshd_config
+  notify: 
+   - restart-ssh
+
+- name: "Add Docker GPG key"
+    apt_key: url=https://download.docker.com/linux/ubuntu/gpg
+
+- name: "Add Docker APT repository"
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
+
+- name: "Install Docker"
+    apt:     name=docker-ce
+
+- name: "Add user to docker group"
+    command: "{{ item }}"
+    with_items:
+      - groupadd docker
+      - usermod -aG docker louis
+
+- name: "Install filebeat"
+    command: "{{ item }}"
+    with_items:
+      - curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.1-amd64.deb
+      - dpkg -i filebeat-6.3.1-amd64.deb
+
+- name: "Create filebeat logs directory"
+  file: path=/var/log/beat state=directory
+
+- name: "Overwrite filebeat configuration file"
+  command:
+    - cat /opt/HoneyPy/config/filebeat/filebeat.yml > /etc/filebeat/filebeat.yml
+  notify:
+     - restart-filebeat
