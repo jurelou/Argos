@@ -38,7 +38,7 @@ dpkg -i filebeat-6.3.1-amd64.deb
 #filebeat config
 cd HoneyPy
 mkdir -p /var/log/beat
-cat ./config/filebeat.yml > /etc/filebeat/filebeat.yml
+cat ./config/filebeat/filebeat.yml > /etc/filebeat/filebeat.yml
 service filebeat restart
 
 #run ssh server
