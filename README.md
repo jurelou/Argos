@@ -2,12 +2,13 @@
 ![Alt text](https://static.comicvine.com/uploads/scale_small/11/117763/3094291-mightyherc13807.jpg)
 
 Install new slave:
+```shell
 ssh-copy-id root@XXX -p XXX
 ssh -p 'XXX' 'root@XXX'
 apt-get install python-simplejson
 exit
 ansible -m ping all
-
+```
 TODO:
 
 Deployment:
