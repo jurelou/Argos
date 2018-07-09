@@ -1,2 +1,5 @@
 - name: "installing tools"
-  apt: pkg=vim state=installed
+  apt: pkg={{ item }} state=installed
+  with_items:
+  - git
+  - vim
