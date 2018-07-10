@@ -9,7 +9,7 @@ TODO:
 
 Deployment:
 
-- [ ] ansible deployment / patch
+- [x] ansible deployment / patch
 
 Logging:
 
@@ -37,6 +37,7 @@ Apps:
 - [ ] port 502 for easy DOS
 
 Core:
+- [x] HTTPS / pki
 - [ ] supervisord for multiple services inside docker nor docker-compos
 - [ ] Dynamically spawn containers for each connections
 - [ ] rsyslog secure connection  with machine-certificates
