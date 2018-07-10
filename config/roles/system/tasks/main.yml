@@ -28,3 +28,11 @@
     dest: inventory_file
     insert_after: '[all:vars]'
     line: 'ansible_ssh_port=2242'
+    
+- name: "Create log directory"
+  file:
+    path: /var/log/beats
+    state: directory
+    owner: redteam
+    mode: 0755
+    recurse: yes
