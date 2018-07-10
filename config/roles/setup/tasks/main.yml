@@ -13,11 +13,6 @@
     src: /opt/HoneyPy/config/files/
     dest: /opt/
 
-- name: "Copy handlers"
-  copy:
-    src: /opt/HoneyPy/handlers/
-    dest: /opt/
-
 - name: "Add Docker GPG key"
   apt_key: url=https://download.docker.com/linux/ubuntu/gpg
 
