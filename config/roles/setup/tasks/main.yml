@@ -10,7 +10,7 @@
 
 - name: "Copy configuration files"
   copy:
-    src: /opt/HoneyPy/config/
+    src: /opt/HoneyPy/config/files/
     dest: /opt/
 
 - name: "Copy handlers"
@@ -37,6 +37,7 @@
 - name: "Install filebeat"
   command: "{{ item }}"
   with_items:
+    - cd /opt
     - curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.1-amd64.deb
     - dpkg -i filebeat-6.3.1-amd64.deb
 
@@ -44,6 +45,6 @@
   file: path=/var/log/beat state=directory
 
 - name: "Overwrite filebeat configuration file"
-  shell: cat /opt/HoneyPy/config/filebeat/filebeat.yml > /etc/filebeat/filebeat.yml
+  shell: cat /opt/files/filebeat.yml > /etc/filebeat/filebeat.yml
   notify:
      - restart-filebeat
