@@ -10,7 +10,7 @@
 
 - name: "Copy configuration files"
   copy:
-    src: /opt/HoneyPy/config/files/
+    src: /opt/HoneyPy/config/files
     dest: /opt/
 
 - name: "Add Docker GPG key"
@@ -26,13 +26,11 @@
 - name: "Add user to docker group"
   command: "{{ item }}"
   with_items:
-    - groupadd docker
     - usermod -aG docker redteam
 
 - name: "Install filebeat"
   command: "{{ item }}"
   with_items:
-    - cd /opt
     - curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.1-amd64.deb
     - dpkg -i filebeat-6.3.1-amd64.deb
 

@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+install.retry
 
 # C extensions
 *.so

@@ -1,8 +1,9 @@
-- name: "Create user"
+---
+- name: "Create user" 
   user:
     name: redteam
     comment: "super redteam"
-    uid: 1040
+    uid: 1042
     group: sudo
 
 - name: "Create SSH key"
@@ -11,23 +12,30 @@
     generate_ssh_key: yes
     ssh_key_bits: 2048
     ssh_key_file: .ssh/id_rsa
- 
+###    
+#cat ~/.ssh/authorized_keys  >> /home/redteam/.ssh/authorized_keys
+### 
+## alow redteam to write /opt and /var/log/beats
 - name: "Change ssh port"
   lineinfile:
     dest: "/etc/ssh/sshd_config"
     regexp: "^Port"
-    line: "Port 2224"
+    line: "Port 2242"
   notify: restart-ssh
+
+- name: "restart-ssh"
+  service: name=ssh state=restarted
+  notify: status-ssh
 
 - name: "Change inventory ansible ssh port"
   set_fact:
     ansible_ssh_port: "2242"
 
-- name: change ssh port in inventory
-  lineinfile:
-    dest: inventory_file
-    insert_after: '[all:vars]'
-    line: 'ansible_ssh_port=2242'
+#- name: change ssh port in inventory
+#  lineinfile:
+#    dest: inventory_file
+#    insert_after: '[all:vars]'
+#    line: 'ansible_ssh_port=2242'
     
 - name: "Create log directory"
   file:
