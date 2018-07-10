@@ -1,18 +1,21 @@
 ---
 - name: "Configure OS"
   hosts: slaves
+    ansible_port: 22
   remote_user: root
   roles:
   - system
   
 - name: "Installing HoneyPy" 
   hosts: slaves
+    ansible_port: 2242
   remote_user: root
   roles: 
   - setup
   
 - name: "Running dockers"
   hosts: slaves
+    ansible_port: 2242
   remote_user: redteam
   roles:
   - dockerize
