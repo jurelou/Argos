@@ -30,7 +30,7 @@
     state: reloaded
     pull: always
     devices:
-    - "/var/log/beat:/var/:rwm"
+    - "/var/log/beats:/var/:rwm"
     ports:
     - "22:2242"
     env:
