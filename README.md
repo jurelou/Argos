@@ -9,7 +9,8 @@ TODO:
 
 Deployment:
 
-- [x] ansible deployment / patch
+- [x] ansible pollers deployment / patch
+- [ ] ansible in docker
 
 Logging:
 
