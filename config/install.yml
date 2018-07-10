@@ -2,6 +2,8 @@
 - name: "Configure OS"
   hosts: slaves
     ansible_port: 22
+  vars:
+    user: redteam
   remote_user: root
   roles:
   - system
