@@ -10,39 +10,8 @@
 
 - name: "Copy configuration files"
   copy:
-    src: /opt/HoneyPy/config/
+    src: /opt/HoneyPy/config/files/
     dest: /opt/
-
-- name: "Copy handlers"
-  copy:
-    src: /opt/HoneyPy/handlers/
-    dest: /opt/
-
-- name: "Create user"
-  user:
-    name: louis
-    comment: "super louis"
-    uid: 1040
-    group: sudo
-
-- name: "Create SSH key"
-  user:
-    name: louis
-    generate_ssh_key: yes
-    ssh_key_bits: 2048
-    ssh_key_file: .ssh/id_rsa
- 
-- name: "Change ssh port"
-  lineinfile:
-    dest: "/etc/ssh/sshd_config"
-    regexp: "^Port"
-    line: "Port 2224"
-  notify: restart-ssh
-
-
-- name: "Change inventory ssh port"
-  set_fact:
-    ansible_port: "2242"
 
 - name: "Add Docker GPG key"
   apt_key: url=https://download.docker.com/linux/ubuntu/gpg
@@ -58,11 +27,12 @@
   command: "{{ item }}"
   with_items:
     - groupadd docker
-    - usermod -aG docker louis
+    - usermod -aG docker redteam
 
 - name: "Install filebeat"
   command: "{{ item }}"
   with_items:
+    - cd /opt
     - curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.1-amd64.deb
     - dpkg -i filebeat-6.3.1-amd64.deb
 
@@ -70,6 +40,6 @@
   file: path=/var/log/beat state=directory
 
 - name: "Overwrite filebeat configuration file"
-  shell: cat /opt/HoneyPy/config/filebeat/filebeat.yml > /etc/filebeat/filebeat.yml
+  shell: cat /opt/files/filebeat.yml > /etc/filebeat/filebeat.yml
   notify:
      - restart-filebeat

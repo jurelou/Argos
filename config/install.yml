@@ -1,9 +1,19 @@
 ---
-- name: "Full install honey moly!!!!!!" 
+- name: "Configure OS"
   hosts: slaves
   remote_user: root
-  become: true
-
+  roles:
+  - system
+  
+- name: "Installing HoneyPy" 
+  hosts: slaves
+  remote_user: root
   roles: 
   - setup
+  
+- name: "Running dockers"
+  hosts: slaves
+  remote_user: redteam
+  roles:
   - dockerize
+
