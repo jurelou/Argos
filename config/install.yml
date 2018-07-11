@@ -1,20 +1,17 @@
 ---
-#- name: "Configure OS"
-#  hosts: slaves
-#  vars:
-#    user: redteam
-#  remote_user: root
-#  roles:
-#  - system
-#- name: "Installing HoneyPy" 
-#  hosts: slaves_after
-#  remote_user: root
-#  roles: 
-#  - setup
+- name: "Configure OS"
+  hosts: slaves
+  remote_user: root
+  roles:
+  - system
+- name: "Installing HoneyPy" 
+  hosts: slaves_after
+  remote_user: root
+  roles: 
+  - setup
   
 - name: "Running dockers"
   hosts: slaves_after
-#  ansible_port: 2242
   remote_user: redteam
   roles:
   - dockerize
