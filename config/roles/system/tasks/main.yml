@@ -12,10 +12,13 @@
     generate_ssh_key: yes
     ssh_key_bits: 2048
     ssh_key_file: .ssh/id_rsa
-###    
-#cat ~/.ssh/authorized_keys  >> /home/redteam/.ssh/authorized_keys
-### 
-## alow redteam to write /opt and /var/log/beats
+
+- name: "Give user human rights"
+  command: "{{ item }}"
+  with_items:
+    - setfacl -m user:redteam:rwx /opt/
+    - cat ~/.ssh/authorized_keys  >> /home/redteam/.ssh/authorized_keys
+  
 - name: "Change ssh port"
   lineinfile:
     dest: "/etc/ssh/sshd_config"
