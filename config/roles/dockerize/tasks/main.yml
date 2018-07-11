@@ -11,27 +11,41 @@
 #    - docker build -t honeysshimg /opt/handlers/ssh/
 #    - docker run -d --rm --name honeySSH -p 22:2242 -v /var/log/beat:/var/ honeysshimg
 
-- name: "Upload handlers"
-  synchronize: src=/opt/HoneyPy/handlers dest=/opt
-  register: sync_res
+#- name: "Upload handlers"
+#  synchronize: src=/opt/HoneyPy/handlers dest=/opt
+#  register: sync_res
 
-- name: "Build image"
-  docker_image: >
-    name=holyssh
-    tag=v1
-    path=/opt/
-    state=present
-  when: sync_res.changed
+#- name: "Build image"
+#  docker_image: >
+#    name=holyssh
+#    tag=v1
+#    path=/opt/
+#    state=present
+#  when: sync_res.changed
 
-- name: "Run container"
-  docker:
-    name: holysshinstance
-    image: "holyssh:v1"
-    state: reloaded
-    pull: always
-    devices:
-    - "/var/log/beats:/var/:rwm"
-    ports:
-    - "22:2242"
-    env:
-      SECRET_KEY: ssssssssssss
+#- name: "Run container"
+#  docker:
+#    name: holysshinstance
+#    image: "holyssh:v1"
+#    state: reloaded
+#    pull: always
+#    devices:
+#    - "/var/log/beats:/var/:rwm"
+#    ports:
+#    - "22:2242"
+#    env:
+#      SECRET_KEY: ssssssssssss
+
+- name: stop all docker containers
+  shell: docker stop $(docker ps -a -q)
+  ignore_errors: true
+
+- name: remove all docker images
+  shell: docker rmi $(docker images -q)
+  ignore_errors: true
+
+- name: "build && run"
+  command: "{{ item }}"
+  with_items:
+    - docker build -t holyssh /opt/handlers/ssh/
+    - docker run -d --rm --name holysshinst -p 22:2242 -v /var/log/beats:/var/ holyssh

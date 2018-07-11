@@ -1,0 +1,7 @@
+---  
+- name: "Running dockers"
+  hosts: slaves_after
+  remote_user: root
+  roles:
+  - dockerize
+

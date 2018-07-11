@@ -1,0 +1,13 @@
+---
+- name: "Installing HoneyPy" 
+  hosts: slaves_after
+  remote_user: root
+  roles: 
+  - setup
+  
+- name: "Running dockers"
+  hosts: slaves_after
+  remote_user: root
+  roles:
+  - dockerize
+

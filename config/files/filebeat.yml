@@ -4,8 +4,9 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
-    - /var/log/beat/*
-    - /var/log/auth.log
+    - /var/log/beats/ssh.log
+  fields:
+    indextype: "ssh"
 
 #============================= Filebeat modules ===============================
 

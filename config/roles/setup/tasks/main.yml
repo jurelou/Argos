@@ -7,11 +7,19 @@
     - ca-certificates
     - curl
     - software-properties-common
+    - python-pip 
+    - python-dev 
+    - build-essential
 
 - name: "Copy configuration files"
   copy:
     src: /opt/HoneyPy/config/files
     dest: /opt/
+
+- name: "Copy handlers"
+  copy:
+    src: /opt/HoneyPy/handlers
+    dest: /opt
 
 - name: "Add Docker GPG key"
   apt_key: url=https://download.docker.com/linux/ubuntu/gpg
@@ -34,8 +42,14 @@
     - curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.1-amd64.deb
     - dpkg -i filebeat-6.3.1-amd64.deb
 
-- name: "Create filebeat logs directory"
-  file: path=/var/log/beat state=directory
+- name: "Some tools for python docker API"
+  pip:
+    name: "{{ item.name }}"
+    version: "{{ item.version }}"
+    state: present
+  with_items:
+  - { name: docker, version: 2.0.0 }
+  - { name: docker-py, version: 1.10.6 }
 
 - name: "Overwrite filebeat configuration file"
   shell: cat /opt/files/filebeat.yml > /etc/filebeat/filebeat.yml

@@ -44,7 +44,7 @@ class Server (paramiko.ServerInterface):
         return paramiko.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
 
     def check_auth_password(self, username, password):
-        logger.info('IP: %s, User: %s, Password: %s' % (self.client_address[0], username, password))
+        logger.info('%s %s %s' % (self.client_address[0], username, password))
         if DENY_ALL == True:
             return paramiko.AUTH_FAILED
         #random.seed()
