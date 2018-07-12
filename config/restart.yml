@@ -1,7 +1,12 @@
 ---  
-- name: "Running dockers"
+- name: "Reload files"
   hosts: slaves_after
   remote_user: root
   roles:
-  - dockerize
+  - setup
 
+- name: "Running dockers"
+  hosts: slaves_after
+  remote_user: redteam
+  roles:
+  - dockerize

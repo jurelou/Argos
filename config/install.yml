@@ -4,3 +4,16 @@
   remote_user: root
   roles:
   - system
+  
+- name: "Install dependencies"
+  hosts: slaves_after
+  remote_user: root
+  roles:
+  - install
+  - setup
+
+- name: "Run dockers"
+  hosts: slaves_after
+  remote_user: redteam
+  roles:
+  - dockerize
