@@ -6,14 +6,14 @@
   - system
   
 - name: "Install dependencies"
-  hosts: slaves
+  hosts: slaves_after
   remote_user: root
   roles:
   - install
   - setup
 
 - name: "Run dockers"
-  hosts: slaves
+  hosts: slaves_after
   remote_user: redteam
   roles:
   - dockerize
