@@ -1,0 +1,40 @@
+- name: "Install dependencies"
+  apt: pkg={{ item }} update_cache=yes
+  with_items:
+    - git
+    - curl
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+    - python-pip 
+    - python-dev 
+    - build-essential
+
+
+- name: "Some tools for python docker API"
+  pip:
+    name: "{{ item.name }}"
+    version: "{{ item.version }}"
+    state: present
+  with_items:
+  - { name: docker, version: 2.0.0 }
+  - { name: docker-py, version: 1.10.6 }
+
+- name: "Add Docker GPG key"
+  apt_key: url=https://download.docker.com/linux/ubuntu/gpg
+
+- name: "Add Docker APT repository"
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
+
+- name: "Install Docker"
+  apt:     name=docker-ce
+
+- name: "Add user to docker group"
+  command: "{{ item }}"
+  with_items:
+    - usermod -aG docker redteam
+  ignore_errors: true
+    
+    
