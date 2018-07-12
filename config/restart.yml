@@ -1,5 +1,4 @@
 ---  
-
 - name: "Reload files"
   hosts: slaves_after
   remote_user: root
@@ -11,4 +10,3 @@
   remote_user: redteam
   roles:
   - dockerize
-
