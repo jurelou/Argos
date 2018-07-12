@@ -1,51 +1,31 @@
-#- name: "Clean all docker images / instances"
-#  command: "{{ item }}"
-#  with_items:
-#    - docker kill $(docker ps -q)
-#    - docker rm $(docker ps -a -q)
-#    - docker rmi $(docker images -q)
-
-#- name: "Launch ssh instance"
-#  command: "{{ item }}"
-#  with_items:
-#    - docker build -t honeysshimg /opt/handlers/ssh/
-#    - docker run -d --rm --name honeySSH -p 22:2242 -v /var/log/beat:/var/ honeysshimg
-
-#- name: "Upload handlers"
-#  synchronize: src=/opt/HoneyPy/handlers dest=/opt
-#  register: sync_res
-
-#- name: "Build image"
-#  docker_image: >
-#    name=holyssh
-#    tag=v1
-#    path=/opt/
-#    state=present
-#  when: sync_res.changed
-
-#- name: "Run container"
-#  docker:
-#    name: holysshinstance
-#    image: "holyssh:v1"
-#    state: reloaded
-#    pull: always
-#    devices:
-#    - "/var/log/beats:/var/:rwm"
-#    ports:
-#    - "22:2242"
-#    env:
-#      SECRET_KEY: ssssssssssss
-
-- name: stop all docker containers
+- name: "stop all docker containers"
   shell: docker stop $(docker ps -a -q)
   ignore_errors: true
 
-- name: remove all docker images
+- name: "remove all docker containers"
+  shell: docker rm $(docker ps -a -q)
+  ignore_errors: true
+
+- name: "remove all docker images"
   shell: docker rmi $(docker images -q)
   ignore_errors: true
 
-- name: "build && run"
-  command: "{{ item }}"
-  with_items:
-    - docker build -t holyssh /opt/handlers/ssh/
-    - docker run -d --rm --name holysshinst -p 22:2242 -v /var/log/beats:/var/ holyssh
+- name: "Build images"
+  docker_image:
+    name: holyssh
+    path: /opt/handlers/ssh/
+    state: build
+
+- name: Ensure the test container is running.
+  docker_container:
+    image: holyssh:latest
+    name: holysshinst
+    state: started
+    restart_policy: always
+    ports:
+    - 22:2242
+    devices:
+    - "/var/log/beats:/var/:rwm"
+
+#    - docker build -t holyssh /opt/handlers/ssh/
+#    - docker run -d --rm --name holysshinst -p 22:2242 -v /var/log/beats:/var/ holyssh
