@@ -24,7 +24,7 @@ Logging:
 
 Reporting:
 - [x] Web interface (kibana)
-- [ ] automaticaly map IP addresses to region
+- [x] automaticaly map IP addresses to region
 - [ ] Attackers machine's signature
 - [x] elasticsearch for data indexing
 
@@ -39,7 +39,7 @@ Apps:
 
 Core:
 - [x] HTTPS / pki
-- [ ] supervisord for multiple services inside docker nor docker-compos
+- [ ] supervisord for multiple services inside docker nor docker-compose
 - [ ] Dynamically spawn containers for each connections
 - [ ] rsyslog secure connection  with machine-certificates
 - [ ] container isolation
