@@ -18,7 +18,7 @@
     version: "{{ item.version }}"
     state: present
   with_items:
-  - { name: docker, version: 2.0.0 }
+#  - { name: docker, version: 2.0.0 }
   - { name: docker-py, version: 1.10.6 }
 
 - name: "Add Docker GPG key"

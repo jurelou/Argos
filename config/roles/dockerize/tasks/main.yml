@@ -10,22 +10,25 @@
   shell: docker rmi $(docker images -q)
   ignore_errors: true
 
-- name: "Build images"
-  docker_image:
-    name: holyssh
-    path: /opt/handlers/ssh/
-    state: build
+#- name: "Build images"
+#  docker_image:
+#    name: holyssh
+#    path: /opt/handlers/ssh/
+#    state: build
 
-- name: Ensure the test container is running.
-  docker_container:
-    image: holyssh:latest
-    name: holysshinst
-    state: started
-    restart_policy: always
-    ports:
-    - 22:2242
-    devices:
-    - "/var/log/beats:/var/:rwm"
+#- name: Ensure the test container is running.
+#  docker_container:
+#    image: holyssh:latest
+#    name: holysshinst
+#    state: started
+#    restart_policy: always
+#    ports:
+#    - 22:2242
+#    devices:
+#    - "/var/log/beats:/var/:rwm"
 
-#    - docker build -t holyssh /opt/handlers/ssh/
-#    - docker run -d --rm --name holysshinst -p 22:2242 -v /var/log/beats:/var/ holyssh
+- name: "build"
+  shell: docker build -t holyssh /opt/handlers/ssh/
+
+- name: "run"
+  shell: docker run -d --rm --name holysshinst -p 22:2242 -v /var/log/beats:/var/ holyssh
