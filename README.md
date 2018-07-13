@@ -2,7 +2,7 @@
 ![Argos](https://static.comicvine.com/uploads/scale_small/11/117763/3094291-mightyherc13807.jpg)
 
 # Architecture
-![Architecture](https://github.com/jurelou/HoneyPy/blob/master/HONEYPOT.png)
+![Architecture](https://github.com/jurelou/HoneyPy/blob/master/arch.png)
 
 Install new poller:
 ```shell
