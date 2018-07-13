@@ -1,12 +1,13 @@
 # HoneyPy
 ![Argos](https://static.comicvine.com/uploads/scale_small/11/117763/3094291-mightyherc13807.jpg)
 
+# Architecture
+![Architecture](https://github.com/jurelou/HoneyPy/blob/master/honeypot)
+
 Install new poller:
 ```shell
 ./add_poller 127.0.0.1 my-super-slave
 ```
-# Architecture
-![Architecture](https://github.com/jurelou/HoneyPy/blob/master/honeypot)
 
 # TODO
 
