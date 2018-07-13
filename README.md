@@ -5,18 +5,17 @@ Install new poller:
 ```shell
 ./add_poller 127.0.0.1 my-super-slave
 ```
+# Architecture
 ![Architecture](https://github.com/jurelou/HoneyPy/blob/master/honeypot)
 
-TODO:
+# TODO
 
-
-
-Deployment:
+## Deployment:
 
 - [x] ansible pollers deployment / patch
 - [ ] ansible in docker
 
-Logging:
+## Logging:
 
 - [x] forward container syslog messages to log server
 - [ ] kernel module keylogger
@@ -26,13 +25,13 @@ Logging:
 - [ ] database for uploaded shellcodes, malwares (sqlite)
 - [ ] message queue // logrotates (rabbitMQ, redis ..)
 
-Reporting:
+## Reporting:
 - [x] Web interface (kibana)
 - [x] automaticaly map IP addresses to region
 - [ ] Attackers machine's signature
 - [x] elasticsearch for data indexing
 
-Apps:
+## Apps:
 - [x] ssh server
 - [ ] scp, sftp,   
 - [ ] MDNS, DropBox, lansync ?
@@ -41,7 +40,7 @@ Apps:
 - [ ] vulnerable web applications
 - [ ] port 502 for easy DOS
 
-Core:
+## Core:
 - [x] HTTPS / pki
 - [ ] supervisord for multiple services inside docker nor docker-compose
 - [ ] Dynamically spawn containers for each connections
