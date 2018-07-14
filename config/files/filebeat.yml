@@ -7,6 +7,12 @@ filebeat.inputs:
     - /var/log/beats/ssh.log
   fields:
     indextype: "ssh"
+- type: log
+  enabled: true
+  paths:
+    - /var/log/opencanary/opencanary.log
+  fields:
+    indextype: "opencanary"
 
 #============================= Filebeat modules ===============================
 

@@ -1,0 +1,6 @@
+---  
+- name: "Reload files"
+  hosts: slaves_after
+  remote_user: root
+  roles:
+  - setup

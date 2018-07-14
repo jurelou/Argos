@@ -7,7 +7,7 @@
   ignore_errors: true
 
 - name: "remove all docker images"
-  shell: docker rmi $(docker images -q)
+  shell: docker rmi holyyssh opencanary
   ignore_errors: true
 
 #- name: "Build images"
@@ -27,8 +27,14 @@
 #    devices:
 #    - "/var/log/beats:/var/:rwm"
 
-- name: "build"
+- name: "build ssh"
   shell: docker build -t holyssh /opt/handlers/ssh/
 
-- name: "run"
+- name: "run ssh "
   shell: docker run -d --rm --name holysshinst -p 22:2242 -v /var/log/beats:/var/ holyssh
+
+- name: "build openc"
+  shell: docker build -t opencanary /opt/handlers/openCanary/
+
+- name: "run openc"
+  shell: docker run -d  -v /var/log/opencanary/:/var/log/opencanary/ -p 3306:3306 -p 80:80 --name opencanaryinst opencanary
