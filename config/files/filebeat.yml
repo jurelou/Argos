@@ -5,15 +5,22 @@ filebeat.inputs:
   enabled: true
   paths:
     - /var/log/beats/ssh.log
-    - /var/log/dionaea.log
   fields:
     indextype: "ssh"
+
 - type: log
   enabled: true
   paths:
     - /var/log/opencanary/opencanary.log
   fields:
     indextype: "opencanary"
+
+- type: log
+  enabled: true
+  paths:
+    - /var/log/dionaea.log
+  fields:
+    indextype: "dionaea"
 
 #============================= Filebeat modules ===============================
 
