@@ -34,6 +34,7 @@ Install new poller:
 - [x] elasticsearch for data indexing
 
 ## Apps:
+- [ ] SMB
 - [x] ssh server
 - [ ] scp, sftp,   
 - [ ] MDNS, DropBox, lansync ?
