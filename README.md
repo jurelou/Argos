@@ -29,6 +29,7 @@ Install new poller:
 - [ ] databases with weak passwords (sql, mongoDB, ...)
 - [ ] NFqueue 
 - [ ] TOR website
+- [ ]  cuckoo (malware analysis)
 
 ## Core:
 - [x] tls / pki
