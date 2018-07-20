@@ -1,5 +1,4 @@
 FROM debian:jessie
-MAINTAINER dustyfresh, https://github.com/dustyfresh
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 

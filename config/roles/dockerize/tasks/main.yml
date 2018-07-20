@@ -1,15 +1,11 @@
 
-#- name: "stop all docker containers"
-#  shell: docker stop $(docker ps -a -q)
-#  ignore_errors: true
+- name: "stop all docker containers"
+  shell: docker stop $(docker ps -a -q)
+  ignore_errors: true
 
-#- name: "remove all docker containers"
-#  shell: docker rm $(docker ps -a -q)
-#  ignore_errors: true
-
-#- name: "remove all docker images"
-#  shell: docker rmi holyyssh opencanary
-#  ignore_errors: true
+- name: "remove all docker containers"
+  shell: docker rm $(docker ps -a -q)
+  ignore_errors: true
 
 - name: "Some tools for python docker API"
   pip:
@@ -24,12 +20,19 @@
     name: holyssh
     path: /opt/handlers/ssh/
     state: build
+    force: yes
+#- name: "build opencanary"
+#  docker_image:
+#    name: opencanary
+#    path: /opt/handlers/openCanary/
+#    state: build
 
-- name: "build opencanary"
+- name: "build dionaea"
   docker_image:
-    name: opencanary
-    path: /opt/handlers/openCanary/
+    name: dionaea
+    path: /opt/handlers/dionaea/
     state: build
+    force: yes
 
 - name: "Ensure ssh is running"
   docker_container:
@@ -42,15 +45,49 @@
     volumes:
     - /var/log/beats:/var
 
-- name: "Ensure opencanary is running"
+- name: create file
+  file:
+    path: /var/log/dionaea.log
+    state: touch
+    mode: 0622
+
+- name: "Ensure dionaea is running"
   docker_container:
-    image: opencanary:latest
-    name: opencanaryinst
+    image: dionaea
+    name: dionaeainst2
     state: started
     restart_policy: always
     ports:
-    - 3306:3306
-    - 80:80
     - 21:21
+    - 42:42
+    - 69:69/udp
+    - 80:80
+    - 135:135
+    - 443:443
+    - 445:445
+    - 1433:1433
+    - 1723:1723
+    - 1883:1883
+    - 1900:1900/udp
+    - 3306:3306
+    - 5060:5060
+    - 5060:5060/udp
+    - 5061:5061
+    - 11211:11211
     volumes:
-    - /var/log/opencanary/:/var/log/opencanary/
+    - /var/log/dionaea.log:/tmp/dionaea.log
+
+#- name: "Ensure opencanary is running"
+#  docker_container:
+#    image: opencanary:latest
+#    name: opencanaryinst
+#    state: started
+#    restart_policy: always
+#    ports:
+#    - 3306:3306
+#    - 80:80
+#    - 21:21
+#    volumes:
+#    - /var/log/opencanary/:/var/log/opencanary/
+
+

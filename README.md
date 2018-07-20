@@ -3,7 +3,7 @@
 
 # Architecture
 !
-![Architecture](https://github.com/jurelou/HoneyPy/blob/master/arch.png)
+![Architecture](https://github.com/jurelou/HoneyPy/blob/master/img/arch.png)
 
 Install new poller:
 ```shell

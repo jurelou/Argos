@@ -5,6 +5,7 @@ filebeat.inputs:
   enabled: true
   paths:
     - /var/log/beats/ssh.log
+    - /var/log/dionaea.log
   fields:
     indextype: "ssh"
 - type: log
