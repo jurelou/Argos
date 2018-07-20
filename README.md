@@ -12,20 +12,14 @@ Install new poller:
 
 # TODO
 
-## Logging:
+## Deployment:
 
 - [x] forward container syslog messages to log server
 - [x] hook syscalls
-- [x] Deploy logstash on log server for logs aggregation
+- [x] Deploy logstash
 - [x] log docker diffs for compromised machines ( and hosts?)
 - [x] database for uploaded shellcodes, malwares (sqlite)
 - [ ] message queue // logrotates (rabbitMQ, redis ..)
-
-## Reporting:
-- [x] Web interface (kibana)
-- [x] automaticaly map IP addresses to region
-- [ ] Attackers machine's signature
-- [x] elasticsearch
 
 ## Events:
 - [x] SMB
@@ -37,6 +31,6 @@ Install new poller:
 - [ ] TOR website
 
 ## Core:
-- [x] HTTPS / pki
+- [x] tls / pki
 - [ ] container isolation
 - [ ] dedicated storage server
