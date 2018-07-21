@@ -15,17 +15,25 @@
   with_items:
   - { name: docker-compose, version: 1.22.0 }
 
-- name: "Build ssh"
-  docker_image:
-    name: holyssh
-    path: /opt/handlers/ssh/
-    state: build
-    force: yes
+#- name: "Build ssh"
+#  docker_image:
+#    name: holyssh
+#    path: /opt/handlers/ssh/
+#    state: build
+#    force: yes
+
+
 #- name: "build opencanary"
 #  docker_image:
 #    name: opencanary
 #    path: /opt/handlers/openCanary/
 #    state: build
+
+- name: "build cowrie CHANGEMEPLZ"
+  command: "{{ item }}"
+  with_items:
+    - docker-compose -f /opt/handlers/cowrie/docker-compose.yml build
+    - docker-compose -f /opt/handlers/cowrie/docker-compose.yml up -d
 
 - name: "build dionaea"
   docker_image:
@@ -34,16 +42,16 @@
     state: build
     force: yes
 
-- name: "Ensure ssh is running"
-  docker_container:
-    image: holyssh
-    name: holysshinst2
-    state: started
-    restart_policy: always
-    ports:
-    - 22:2242
-    volumes:
-    - /var/log/beats:/var
+#- name: "Ensure ssh is running"
+#  docker_container:
+#    image: holyssh
+#    name: holysshinst2
+#    state: started
+#    restart_policy: always
+#    ports:
+#    - 22:2242
+#    volumes:
+#    - /var/log/beats:/var
 
 - name: create file
   file:
@@ -61,9 +69,7 @@
     - 21:21
     - 42:42
     - 69:69/udp
-    - 80:80
     - 135:135
-    - 443:443
     - 445:445
     - 1433:1433
     - 1723:1723

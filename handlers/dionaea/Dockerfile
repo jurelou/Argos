@@ -17,6 +17,6 @@ RUN /bin/bash /build/bin/build.sh && \
 COPY supervisor/*.conf /etc/supervisor/conf.d/
 COPY conf /opt/dionaea/etc/dionaea
 
-EXPOSE 21 42 69/udp 80 135 443 445 1433 1723 1883 1900/udp 3306 5060 5060/udp 5061 11211
+EXPOSE 21 42 69/udp 135 445 1433 1723 1883 1900/udp 3306 5060 5060/udp 5061 11211
 
 CMD ["/usr/bin/supervisord", "--nodaemon", "-c", "/etc/supervisor/supervisord.conf"]

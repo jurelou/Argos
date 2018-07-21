@@ -2,7 +2,7 @@ version: "2"
 services:
     cowrie:
         image: rayson/cowrie:20160907-1
-        build: /opt/handlers/cowrie
+        build: .
         user: cowrie
         ports:
             - "22:2222/tcp"
