@@ -2,14 +2,14 @@
 
 filebeat.inputs:
 - type: log
-  enabled: true
+  enabled: false
   paths:
     - /var/log/beats/ssh.log
   fields:
     indextype: "ssh"
 
 - type: log
-  enabled: true
+  enabled: false
   paths:
     - /var/log/opencanary/opencanary.log
   fields:
@@ -18,9 +18,30 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
+    - /var/lib/docker/volumes/cowrie_cowrie-log/_data/cowrie.json
+  fields:
+    indextype: "cowrie"
+
+- type: log
+  enabled: true
+  paths:
     - /var/log/dionaea.log
   fields:
     indextype: "dionaea"
+
+- type: log
+  enabled: true
+  paths:
+    - /var/log/iptables.log
+  fields:
+    indextype: "iptables"
+
+- type: log
+  enabled: true
+  paths:
+    - /var/log/arpalert.log
+  fields:
+    indextype: "arpalert"
 
 #============================= Filebeat modules ===============================
 

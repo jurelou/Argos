@@ -1,14 +1,42 @@
-- name: "Copy configuration files"
+- name: "TODO: add to install.yml"
+  apt: pkg={{ item }} update_cache=yes
+  with_items:
+    - arpalert
+
+- name: "TODO: use niptabnles module"
+  shell: "iptables -A INPUT -p tcp --tcp-flags SYN,ACK SYN,ACK -j LOG --log-prefix='[netfilter] '"
+
+- name: "Add rsyslog iptables rule"
   copy:
-    src: /opt/HoneyPy/config/files
-    dest: /opt/
+    src: /opt/HoneyPy/config/files/00-iptables.conf
+    dest: /etc/rsyslog.d/
+  notify:
+    - restart-rsyslog
 
 - name: "Copy handlers"
   copy:
     src: /opt/HoneyPy/handlers
     dest: /opt
 
-- name: "Overwrite filebeat configuration file"
-  shell: cat /opt/files/filebeat.yml > /etc/filebeat/filebeat.yml
+- name: "Create log directory"
+  file:
+    path: /var/log/beats
+    state: directory
+    owner: root
+    mode: 0755
+    recurse: yes
+
+- name: "Copy arpalert conf"
+  copy:
+    src: /opt/HoneyPy/config/files/arpalert.conf
+    dest: /etc/arpalert/arpalert.conf
+
+- name: "Copy filebeat conf"
+  copy:
+    src: /opt/HoneyPy/config/files/filebeat.yml
+    dest: /etc/filebeat/filebeat.yml
   notify:
-     - restart-filebeat
+    - restart-filebeat
+
+- name: "Run arpalert"
+  shell: "arpalert"

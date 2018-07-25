@@ -4,3 +4,10 @@
 
 - name: "status-filebeat"
   service: name=filebeat state=started enabled=yes
+
+- name: "restart-rsyslog"
+  service: name=rsyslog state=restarted
+  notify: status-rsyslog
+
+- name: "status-rsyslog"
+  service: name=rsyslog state=started enabled=yes
