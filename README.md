@@ -32,14 +32,14 @@ Install new poller:
 ## Events:
 - [x] SMB
 - [x] ssh server
-- [ ] scp, sftp,   
+- [x] scp, sftp,   
 - [ ] MDNS, DropBox, lansync ?
-- [ ] databases with weak passwords (sql, mongoDB, ...)
-- [ ] NFqueue 
+- [x] databases with weak passwords (sql, mongoDB, ...)
+- [x] NFqueue 
 - [ ] TOR website
 - [ ]  cuckoo (malware analysis)
 
 ## Core:
 - [x] tls / pki
-- [ ] container isolation
+- [x] container isolation
 - [ ] dedicated storage server
