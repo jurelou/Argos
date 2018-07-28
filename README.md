@@ -1,5 +1,5 @@
 # Argos
-Argus Panoptes or Argos (Ancient Greek: Ἄργος) is a many-eyed giant in Greek mythology. The figure is known for having spawned the saying "the eyes of Argus", as in to be "followed by", "trailed by", "watched by", et cetera the eyes; the saying is used to describe being subject to strict scrutiny in one's actions to an invasive, distressing degree.
+Argus Panoptes or Argos was a hundred-eyed giant in Greek mythology. He was a giant, the son of Arestor, whose name "Panoptes" meant "the all-seeing one". He was a servant of Hera; one of the tasks that were given to him was to slay the fearsome monster Echidna, wife of Typhon, which he successfully completed. However, his main task, at Hera's request, was to guard Io, a nymph that Zeus was involved with. Zeus, in his efforts to approach Io, told Hermes to disguise himself as a shepherd and make Argus go to sleep. As soon as he fell asleep, Hermes killed him with a stone.
 
 ![Argos](https://static.comicvine.com/uploads/scale_small/11/117763/3094291-mightyherc13807.jpg)
 
