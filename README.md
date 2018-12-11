@@ -27,7 +27,7 @@ Install new poller:
 - [x] Deploy logstash
 - [x] log docker diffs for compromised machines ( and hosts?)
 - [x] database for uploaded shellcodes, malwares (sqlite)
-- [ ] message queue // logrotates (rabbitMQ, redis ..)
+- [x] message queue // logrotates (rabbitMQ, redis ..)
 
 ## Events:
 - [x] SMB
@@ -36,10 +36,10 @@ Install new poller:
 - [ ] MDNS, DropBox, lansync ?
 - [x] databases with weak passwords (sql, mongoDB, ...)
 - [x] NFqueue 
-- [ ] TOR website
+- [x] TOR website
 - [ ]  cuckoo (malware analysis)
 
 ## Core:
 - [x] tls / pki
 - [x] container isolation
-- [ ] dedicated storage server
+- [x] dedicated storage server
